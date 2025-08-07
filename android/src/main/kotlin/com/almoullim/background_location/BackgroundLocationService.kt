@@ -241,7 +241,7 @@ override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out
         Log.i(BackgroundLocationPlugin.TAG, "onRequestPermissionResult")
         if (requestCode == REQUEST_PERMISSIONS_REQUEST_CODE) {
             when {
-                grantResults!!.isEmpty() -> Log.i(BackgroundLocationPlugin.TAG, "User interaction was cancelled.")
+                grantResults.isEmpty() -> Log.i(BackgroundLocationPlugin.TAG, "User interaction was cancelled.")
                 grantResults[0] == PackageManager.PERMISSION_GRANTED -> service?.requestLocationUpdates()
                 else -> Toast.makeText(context, R.string.permission_denied_explanation, Toast.LENGTH_LONG).show()
             }
